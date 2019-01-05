@@ -96,7 +96,7 @@ void endscreen() { //end screen function
     fill(0);
     textSize(34);
     fill (#18D622);
-    text("You won the game", winScoreX, winScoreX);   
+    text("You won the game", winScoreX, winScoreY);   
 
     noLoop();
   }

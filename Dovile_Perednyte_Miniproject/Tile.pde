@@ -29,8 +29,8 @@ class TTiles {
 
   void collide() {
     if (tilehit) { //when the tile gets it by the ball
-      return; // makes sure that the same tile doesn't get hit twice
-    }
+     return; // makes sure that the same tile doesn't get hit twice
+   }
 
     // checks if the ball has hit the top of the tile
     if (ball.ballpos.x + ball.r > tileloc.x && //ball hits the top left corner of the tile

@@ -99,7 +99,7 @@ void maingameStage() { //the main game screen
 
   for (int i = 0; i < tiles.length; i++) { 
     tiles[i].display(); //displays the tiles
-    tiles[i].collide(); //intiaites the tiles' collision function
+    tiles[i].collide(); //initiates the tiles' collision function
   }
 
   endscreen();   //calls the end screen function if the player wins or losses
