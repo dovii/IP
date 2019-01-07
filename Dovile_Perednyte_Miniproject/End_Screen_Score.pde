@@ -2,9 +2,7 @@
 //That includes the game stages (start, main, end) and their displays as well as score count function.
 
 
-// Game stages: 0 - startgame screen, 1 - main game screen, 2 - endgame screen
-
-int gameStage = 0; //begins at starting game screen
+boolean gameStage = false; //begins at starting game screen
 
 float titleTextX = 160, titleTextY = 200; //startgame title text position
 float instrTextX = 310, instrTextY = 270; //startgame instructions text position
@@ -33,14 +31,14 @@ void score() { //bottom score bar and score visual display
 
 
 void mousePressed() { // if we are on the initial/startgame stage when clicked, starts the game screen
-  if (gameStage == 0) {
+  if (gameStage == false) {
     startGame();
   }
 }
 
 
 void startGame() { //triggers the main game screen when mouse is clicked
-  gameStage=1;
+  gameStage=true;
 }
 
 
@@ -96,7 +94,7 @@ void endscreen() { //end screen function
     fill(0);
     textSize(34);
     fill (#18D622);
-    text("You won the game", winScoreX, winScoreY);   
+    text("You won the game", winScoreX, winScoreX);   
 
     noLoop();
   }

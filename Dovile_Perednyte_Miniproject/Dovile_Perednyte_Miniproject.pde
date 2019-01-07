@@ -54,10 +54,10 @@ void setup() {
 
   tiles = new TTiles[TTiles_total];
 
-
-  //declares the position of all of the tiles, initialises the array to show every single tile from the array
+  //sets the position of all of the tiles, initialises the array to show every single tile from the array
   //Puts the array tiles in a position of a 7 x 12 block, later the tiles class takes up the "spots" that are drawn/located by this array for loop.
   for (int row = 0; row < row_total; row++) {  //draws up to 7 rows of tiles
+
 
     float TTiles_X = 10; // tiles spawn at X=10 position (not at the corner of the screen)
     for (int column = 0; column < columns_total; column++) { //draws up to 12 columns of tiles
@@ -73,12 +73,10 @@ void setup() {
 
 void draw() {
 
-  if (gameStage == 0) { //displays a start screen (stage 0 is startgame screen)
+  if (gameStage == false) { //displays a start screen
     startscreen();
-  } else if (gameStage == 1) { //displays the main game screen (stage 1 is main gameplay screen)
+  } else if (gameStage == true) { //displays the main game screen 
     maingameStage();
-  } else if (gameStage == 2) { //displays the end screen (stage 2 is endgame screen)
-    endscreen();
   }
 }
 
@@ -99,7 +97,7 @@ void maingameStage() { //the main game screen
 
   for (int i = 0; i < tiles.length; i++) { 
     tiles[i].display(); //displays the tiles
-    tiles[i].collide(); //initiates the tiles' collision function
+    tiles[i].collide(); //intiaites the tiles' collision function
   }
 
   endscreen();   //calls the end screen function if the player wins or losses

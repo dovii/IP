@@ -18,7 +18,7 @@ class TTiles {
 
   void display() {
 
-    if (!tilehit) // only draw if the Top Tiles haven't been hit (tiles are untouched). That is the case in the beginning.
+    if (!tilehit) // only draw if the tiles haven't been hit (tiles are untouched). That is the case in the beginning.
     {
       fill(tileColor);
       stroke(0);
@@ -28,14 +28,17 @@ class TTiles {
 
 
   void collide() {
-    if (tilehit) { //when the tile gets it by the ball
-     return; // makes sure that the same tile doesn't get hit twice
-   }
+    //if tilehit = false, then it is set to true by the if statements when the conditions are fulfilled
+    //if/when tilehit = true, then the rest of the function is not checked and it's only run to that point.
+   
+    if (tilehit) {       //when the tile gets it by the ball
+      return;            //makes sure that the function is stopped from running, so the score doesn't keep going up
+    }
 
     // checks if the ball has hit the top of the tile
-    if (ball.ballpos.x + ball.r > tileloc.x && //ball hits the top left corner of the tile
-      ball.ballpos.x - ball.r < tileloc.x + w && //ball hits the top right corner of the tile
-      abs(ball.ballpos.y + ball.r - tileloc.y) < 3) { //hitbox on the Y axis
+    if (ball.ballpos.x + ball.r > tileloc.x && //ball hits the area starting from top left corner of the tile
+      ball.ballpos.x - ball.r < tileloc.x + w && //ball hits the area starting from top right corner of the tile
+      abs(ball.ballpos.y + ball.r - tileloc.y) < hitbox) { //hitbox on the Y axis
 
       tilehit = true; //if all of the statemens are fulfilled, the tile has been hit
       ball.bounceUp();
@@ -43,8 +46,8 @@ class TTiles {
 
 
     // checks if the ball has hit the bottom of the tile
-    if (ball.ballpos.x + ball.r > tileloc.x && //ball hits the bottom left corner of the tile
-      ball.ballpos.x - ball.r < tileloc.x + w && //ball hits the bottom right corner of the tile
+    if (ball.ballpos.x + ball.r > tileloc.x && //ball hits the area starting from bottom left corner of the tile
+      ball.ballpos.x - ball.r < tileloc.x + w && //ball hits the area starting from bottom right corner of the tile
       abs(ball.ballpos.y - ball.r - tileloc.y - h) < hitbox) { //hitbox on the Y axis
 
       tilehit = true; //if all of the statemens are fulfilled, the tile has been hit
@@ -53,8 +56,8 @@ class TTiles {
 
 
     // checks if the ball has hit the left side of the tile
-    if (ball.ballpos.y + ball.r > tileloc.y && //ball hits the left side of the tile
-      ball.ballpos.y - ball.r < tileloc.y + h && //ball hits the right side of the tile
+    if (ball.ballpos.y + ball.r > tileloc.y && //ball hits the area starting from left side of the tile
+      ball.ballpos.y - ball.r < tileloc.y + h && //ball hits the area starting from right side of the tile
       abs(ball.ballpos.x + ball.r - tileloc.x) < hitbox) { //hitbox on the X axis
 
       tilehit = true; //if all of the statemens are fulfilled, the tile has been hit
@@ -63,8 +66,8 @@ class TTiles {
 
 
     // checks if the ball has hit the right side of the tile
-    if (ball.ballpos.y + ball.r > tileloc.y && //ball hits the left side of the tile
-      ball.ballpos.y - ball.r < tileloc.y + h && //ball hits the right side of the tile
+    if (ball.ballpos.y + ball.r > tileloc.y && //ball hits the area starting from left side of the tile
+      ball.ballpos.y - ball.r < tileloc.y + h && //ball hits the area starting from right side of the tile
       abs(ball.ballpos.x - ball.r - tileloc.x - w) < hitbox) { //hitbox on the X axis
 
       tilehit = true; //if all of the statemens are fulfilled, the tile has been hit

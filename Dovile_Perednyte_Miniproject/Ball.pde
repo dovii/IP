@@ -43,8 +43,8 @@ class BBall
 
     // the ball bounces up only if it hits the paddle if all of these statements are fulfilled:
     if (ballpos.y + r > PPaddle_Y && //the ball is above of the paddle / hits the top of it (the ball can't hit the bottom side of the paddle)
-      ballpos.x + r > paddle.paddlepos.x && //the ball hits the right corner of the paddle
-      ballpos.x - r < paddle.paddlepos.x + PPaddle_W) { //the ball hits the left corner of the paddle
+      ballpos.x + r > paddle.paddlepos.x && //the ball hits the area starting from the right corner of the paddle
+      ballpos.x - r < paddle.paddlepos.x + PPaddle_W) { //the ball hits the area starting from the left corner of the paddle
 
       bounceUp();
     }
